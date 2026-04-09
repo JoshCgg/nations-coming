@@ -69,37 +69,231 @@ const RAW_COUNTRIES = [
 
   // Oceania (1)
   { n:"New Zealand",  f:"🇳🇿", r:"Oceania", cf:"OFC", pop:"5.1M", rel:"Christianity (nominal)", u:9, ug:["Māori","Pacific Islander NZ","Chinese New Zealanders"], cap:"Wellington", lang:"English, Māori", m:"New Zealand's Māori people are experiencing revival—and Polynesian churches are sending missionaries across the Pacific." },
+
+  // Additional confirmed qualifiers
+  { n:"Bosnia & Herzegovina", f:"🇧🇦", r:"Europe", cf:"UEFA", pop:"3.3M", rel:"Islam/Christianity", u:6, ug:["Bosniak Muslims","Roma Bosnians","Croatian Catholics"], cap:"Sarajevo", lang:"Bosnian, Serbian, Croatian", m:"Bosnia is home to Europe's largest indigenous Muslim community — the Bosniaks — whose spiritual openness has drawn growing missionary attention." },
+  { n:"Sweden",           f:"🇸🇪", r:"Europe", cf:"UEFA", pop:"10.5M", rel:"Secular/Christianity", u:14, ug:["Somali Swedes","Iraqi Swedes","Afghan Swedes"], cap:"Stockholm", lang:"Swedish", m:"Sweden is one of Europe's most secular nations, yet its cities hold large diaspora communities from Muslim-majority nations — a mission field within a mission field." },
+  { n:"Türkiye",          f:"🇹🇷", r:"Europe", cf:"UEFA", pop:"85M",  rel:"Islam", u:11, ug:["Kurds","Alevi Turks","Arab Turks"], cap:"Ankara", lang:"Turkish", m:"Türkiye bridges Europe and Asia — and its Kurdish minority and Alevi communities represent distinct gospel frontiers within a Muslim-majority nation." },
+  { n:"Czechia",          f:"🇨🇿", r:"Europe", cf:"UEFA", pop:"10.9M", rel:"Secular/Atheism", u:8, ug:["Roma Czechs","Vietnamese Czechs","Ukrainian refugees"], cap:"Prague", lang:"Czech", m:"Czechia is one of the world's most atheist nations — a post-communist spiritual vacuum where gospel seeds are being quietly sown." },
+  { n:"DR Congo",         f:"🇨🇩", r:"Africa", cf:"CAF", pop:"100M", rel:"Christianity", u:18, ug:["Pygmy communities","Congolese Muslims","Nande"], cap:"Kinshasa", lang:"French, Lingala, Swahili", m:"The DRC is Africa's second-largest nation — home to one of the continent's largest Christian populations, yet dozens of unreached tribal communities in the rainforest interior." },
+  { n:"Iraq",             f:"🇮🇶", r:"Asia", cf:"AFC", pop:"42M",  rel:"Islam (Shia/Sunni)", u:12, ug:["Yazidis","Assyrian Christians","Kurds"], cap:"Baghdad", lang:"Arabic, Kurdish", m:"Iraq is home to the ancient Assyrian church and a traumatized Yazidi people — two communities that desperately need the healing only Christ can bring." },
+  { n:"Cape Verde",       f:"🇨🇻", r:"Africa", cf:"CAF", pop:"560K", rel:"Christianity", u:3, ug:["Cape Verdean diaspora","West African migrants","Secular urban youth"], cap:"Praia", lang:"Portuguese, Cape Verdean Creole", m:"A small island nation with a large diaspora — Cape Verdean communities in Boston, Lisbon, and Rotterdam represent a diaspora missions opportunity." },
+  { n:"Ghana",            f:"🇬🇭", r:"Africa", cf:"CAF", pop:"33M",  rel:"Christianity/Islam", u:8, ug:["Dagomba","Fulani in Ghana","Northern Ghana Muslims"], cap:"Accra", lang:"English, Twi, Akan", m:"Ghana's vibrant church sends missionaries across West Africa — yet its northern Muslim communities remain largely unreached by Ghanaian Christians." },
 ];
 
 /* ─── PLAYOFF TBD SLOTS ─── */
-const TBD_SLOTS = [
-  { n:"UEFA Playoff A", f:"🏆", r:"Europe", cf:"UEFA", contenders:"Italy vs N. Ireland / Wales vs Bosnia", u:0 },
-  { n:"UEFA Playoff B", f:"🏆", r:"Europe", cf:"UEFA", contenders:"Ukraine vs Sweden / Poland vs Albania", u:0 },
-  { n:"UEFA Playoff C", f:"🏆", r:"Europe", cf:"UEFA", contenders:"Turkey vs Romania / Slovakia vs Kosovo", u:0 },
-  { n:"UEFA Playoff D", f:"🏆", r:"Europe", cf:"UEFA", contenders:"Denmark vs N. Macedonia / Czechia vs Ireland", u:0 },
-  { n:"Inter-Conf. Playoff 1", f:"🌍", r:"Africa", cf:"CAF/CONCACAF", contenders:"DR Congo vs (New Caledonia vs Jamaica)", u:0 },
-  { n:"Inter-Conf. Playoff 2", f:"🌏", r:"Asia", cf:"AFC/CONMEBOL", contenders:"Iraq vs (Bolivia vs Suriname)", u:0 },
-];
+const TBD_SLOTS = [];
 
 /* ─── SCHEDULE DATA ─── */
+// All times are Eastern Time (ET). Schedule based on ESPN/FIFA official fixtures.
+// Groups A-L reflect the confirmed December 2025 draw + March 2026 playoff results.
 const RAW_SCHEDULE = [
-  { d:"Jun 11", full:"Thursday, June 11", feat:["Mexico","South Africa"], dev:"The World Cup opens today in the land where the gospel first reached the Americas. As millions watch, remember: every nation represented on this field is a people for whom Christ died. The tournament is more than sport—it's a window into the diversity God is gathering.", pray:"Pray for Mexican believers to see their neighbors from unreached nations as a mission field. Pray for South African churches to send and support workers to unreached communities.", matches:[{t:"5:00 PM",a:"Mexico",b:"South Africa",g:"A",v:"Estadio Azteca, Mexico City"},{t:"8:00 PM",a:"USA",b:"Canada",g:"B",v:"AT&T Stadium, Dallas"}] },
-  { d:"Jun 12", full:"Friday, June 12", feat:["Argentina","Nigeria"], dev:"Argentina and Nigeria—one from the wealthy south of the Americas, one from Africa's most populous nation. Together they represent hundreds of millions of people. God's heart has always been for the nations, and today we see them gathered.", pray:"Pray for Nigerian missionaries reaching the Hausa-Fulani. Pray for Argentine believers engaging their city's Jewish community.", matches:[{t:"2:00 PM",a:"Argentina",b:"Nigeria",g:"C",v:"MetLife Stadium, New York"},{t:"5:00 PM",a:"France",b:"Belgium",g:"D",v:"Rose Bowl, Los Angeles"},{t:"8:00 PM",a:"Brazil",b:"Japan",g:"E",v:"SoFi Stadium, Los Angeles"}] },
-  { d:"Jun 13", full:"Saturday, June 13", feat:["Morocco","England"], dev:"Morocco's Atlas Lions represent a nation that is 99.9% Muslim—yet a growing underground church quietly testifies to transformation. England's team reflects London's incredible diversity, with players tracing roots to Nigeria, Jamaica, and beyond.", pray:"Pray for Moroccan believers who face pressure for their faith. Pray for the church in London to engage its unreached diaspora communities.", matches:[{t:"12:00 PM",a:"Morocco",b:"Scotland",g:"F",v:"Levi's Stadium, San Francisco"},{t:"3:00 PM",a:"England",b:"Panama",g:"G",v:"Gillette Stadium, Boston"},{t:"6:00 PM",a:"Germany",b:"Uruguay",g:"H",v:"Allegiant Stadium, Las Vegas"},{t:"9:00 PM",a:"Spain",b:"Côte d'Ivoire",g:"A",v:"Rose Bowl, Los Angeles"}] },
-  { d:"Jun 14", full:"Sunday, June 14", feat:["Japan","South Korea"], dev:"Two Asian giants meet today. Japan, one of the world's hardest mission fields, and South Korea, one of the world's greatest missionary-sending nations. There is something profound in watching them compete—the reached and the unreached, side by side.", pray:"Pray for Korean missionaries laboring in Japan. Pray for breakthroughs in Japanese families who resist the gospel for cultural reasons.", matches:[{t:"3:00 PM",a:"Japan",b:"Ecuador",g:"B",v:"Levi's Stadium, San Francisco"},{t:"6:00 PM",a:"South Korea",b:"Cameroon",g:"C",v:"AT&T Stadium, Dallas"},{t:"9:00 PM",a:"Netherlands",b:"Senegal",g:"D",v:"Lincoln Financial Field, Philadelphia"}] },
-  { d:"Jun 15", full:"Monday, June 15", feat:["Iran","Saudi Arabia"], dev:"Today two of the most spiritually significant Muslim-majority nations play. Iran is witnessing one of the fastest church growth movements on earth. Saudi Arabia—the birthplace of Islam—is seeing remarkable numbers of Saudis quietly following Jesus.", pray:"Pray for the underground church in Iran to remain protected and multiplying. Pray for Saudi seekers who risk everything to follow Christ.", matches:[{t:"3:00 PM",a:"Iran",b:"Australia",g:"E",v:"SoFi Stadium, Los Angeles"},{t:"6:00 PM",a:"Saudi Arabia",b:"Croatia",g:"F",v:"MetLife Stadium, New York"},{t:"9:00 PM",a:"Portugal",b:"Egypt",g:"G",v:"Allegiant Stadium, Las Vegas"}] },
-  { d:"Jun 16", full:"Tuesday, June 16", feat:["Senegal","Algeria"], dev:"West Africa and North Africa face off today. Senegal's team is almost entirely Muslim, representing Sufi brotherhoods with deep spiritual hunger. Algeria's Kabyle Berber church is one of Africa's most remarkable revival stories.", pray:"Pray for the Wolof people of Senegal to encounter Jesus. Pray for Algerian church leaders who face increasing pressure.", matches:[{t:"3:00 PM",a:"Senegal",b:"Switzerland",g:"H",v:"Rose Bowl, Los Angeles"},{t:"6:00 PM",a:"Algeria",b:"New Zealand",g:"A",v:"Levi's Stadium, San Francisco"},{t:"9:00 PM",a:"USA",b:"Panama",g:"B",v:"AT&T Stadium, Dallas"}] },
-  { d:"Jun 17", full:"Wednesday, June 17", feat:["France","Tunisia"], dev:"France hosts the largest Muslim population in Western Europe—many of them Algerian and Tunisian. Today France plays Tunisia, a connection that reflects millions of diaspora relationships. The nations aren't just coming to the stadium; they're living next door to the church.", pray:"Pray for French churches to mobilize toward their Muslim neighbors. Pray for Tunisian believers whose witness is costly.", matches:[{t:"12:00 PM",a:"France",b:"Tunisia",g:"D",v:"Rose Bowl, Los Angeles"},{t:"3:00 PM",a:"Argentina",b:"Colombia",g:"C",v:"MetLife Stadium, New York"},{t:"6:00 PM",a:"Brazil",b:"Uzbekistan",g:"E",v:"SoFi Stadium, Los Angeles"},{t:"9:00 PM",a:"Germany",b:"Scotland",g:"H",v:"Allegiant Stadium, Las Vegas"}] },
-  { d:"Jun 18", full:"Thursday, June 18", feat:["Jordan","Qatar"], dev:"Two small nations with enormous global significance. Jordan hosts more refugees per capita than almost any nation on earth. Qatar's migrants—mostly from South Asia—represent millions of laborers far from home, many from Hindu and Buddhist backgrounds.", pray:"Pray for the church in Jordan to be a lighthouse for refugee communities. Pray for Filipino and South Asian Christians in Qatar to boldly share their faith.", matches:[{t:"3:00 PM",a:"Jordan",b:"Curaçao",g:"F",v:"Gillette Stadium, Boston"},{t:"6:00 PM",a:"Qatar",b:"Haiti",g:"G",v:"Levi's Stadium, San Francisco"},{t:"9:00 PM",a:"Belgium",b:"Morocco",g:"A",v:"Lincoln Financial Field, Philadelphia"}] },
-  { d:"Jun 19", full:"Friday, June 19", feat:["Nigeria","Cameroon"], dev:"Juneteenth—the celebration of freedom in America. Today two African giants play. Nigeria has the most unreached people groups in Africa. Cameroon's north remains largely Muslim and underserved by the church. The freedom the gospel brings is still needed.", pray:"Pray for Nigerian church leaders on the frontier with Hausa-Fulani communities. Pray for the church in northern Cameroon to grow in boldness.", matches:[{t:"12:00 PM",a:"Nigeria",b:"South Korea",g:"C",v:"AT&T Stadium, Dallas"},{t:"3:00 PM",a:"Cameroon",b:"Japan",g:"E",v:"SoFi Stadium, Los Angeles"},{t:"6:00 PM",a:"England",b:"Canada",g:"G",v:"MetLife Stadium, New York"},{t:"9:00 PM",a:"Croatia",b:"Australia",g:"F",v:"Allegiant Stadium, Las Vegas"}] },
-  { d:"Jun 20", full:"Saturday, June 20", feat:["Egypt","Saudi Arabia"], dev:"Egypt holds the ancient Coptic Church—one of Christianity's oldest—yet 90% of Egyptians remain Muslim. Saudi Arabia was closed for centuries to the gospel. Today both nations play, reminding us that no people is beyond the reach of prayer and witness.", pray:"Pray for the Coptic Church to be a missionary church to their Muslim neighbors. Pray for Saudi nationals studying or working in America during this World Cup.", matches:[{t:"12:00 PM",a:"Egypt",b:"Switzerland",g:"H",v:"Rose Bowl, Los Angeles"},{t:"3:00 PM",a:"Saudi Arabia",b:"South Africa",g:"A",v:"Estadio Azteca, Mexico City"},{t:"6:00 PM",a:"Netherlands",b:"France",g:"D",v:"Lincoln Financial Field, Philadelphia"},{t:"9:00 PM",a:"Ecuador",b:"USA",g:"B",v:"AT&T Stadium, Dallas"}] },
-  { d:"Jun 21", full:"Sunday, June 21", feat:["Brazil","Colombia"], dev:"South America sends two of its most vibrant Christian nations today. Brazil sends more missionaries than any South American country. Colombia's church has grown remarkably amid decades of conflict. Yet both nations also contain millions of unreached indigenous people.", pray:"Pray for Brazilian missionaries serving in North Africa and the Middle East. Pray for Colombian believers ministering to Venezuelan refugees.", matches:[{t:"12:00 PM",a:"Brazil",b:"Iran",g:"E",v:"SoFi Stadium, Los Angeles"},{t:"3:00 PM",a:"Colombia",b:"Panama",g:"B",v:"Levi's Stadium, San Francisco"},{t:"6:00 PM",a:"Spain",b:"Algeria",g:"A",v:"Rose Bowl, Los Angeles"},{t:"9:00 PM",a:"Scotland",b:"Jordan",g:"F",v:"Gillette Stadium, Boston"}] },
-  { d:"Jun 22", full:"Monday, June 22", feat:["Portugal","Uzbekistan"], dev:"Portugal—the once-great colonial power that spread Catholicism globally—now faces a post-Christian moment at home. Uzbekistan, a Central Asian nation of 36 million Muslims, has a tiny but courageous church. These two nations together span the full arc of world Christianity.", pray:"Pray for Portuguese believers to rediscover the missionary impulse of their forebears. Pray for the church in Uzbekistan to multiply despite legal restrictions.", matches:[{t:"3:00 PM",a:"Portugal",b:"Jordan",g:"G",v:"Allegiant Stadium, Las Vegas"},{t:"6:00 PM",a:"Uzbekistan",b:"Iran",g:"E",v:"SoFi Stadium, Los Angeles"},{t:"9:00 PM",a:"Germany",b:"Belgium",g:"H",v:"Lincoln Financial Field, Philadelphia"}] },
-  { d:"Jun 23", full:"Tuesday, June 23", feat:["Austria","Norway"], dev:"Northern and Central Europe—once the heartland of the Reformation—now among the world's most secular places. Austria and Norway both have significant immigrant populations from Muslim-majority nations. The mission field has come to the mission base.", pray:"Pray for churches in Vienna and Oslo to see their Muslim neighbors as their mission field. Pray for second-generation immigrants to encounter Christ.", matches:[{t:"3:00 PM",a:"Austria",b:"Curaçao",g:"F",v:"MetLife Stadium, New York"},{t:"6:00 PM",a:"Norway",b:"New Zealand",g:"A",v:"Levi's Stadium, San Francisco"},{t:"9:00 PM",a:"Netherlands",b:"Tunisia",g:"D",v:"Rose Bowl, Los Angeles"}] },
-  { d:"Jun 24", full:"Wednesday, June 24", feat:["Haiti","New Zealand"], dev:"Two nations at opposite ends of the globe—Haiti, scarred by poverty and crisis yet full of spiritual vitality; New Zealand, prosperous and post-Christian yet seeing revival among Māori. God is at work in unexpected places.", pray:"Pray for the church in Haiti to be a source of healing in a broken nation. Pray for the Māori revival to spread across Pacific island communities.", matches:[{t:"12:00 PM",a:"Haiti",b:"Switzerland",g:"H",v:"Rose Bowl, Los Angeles"},{t:"3:00 PM",a:"New Zealand",b:"Morocco",g:"A",v:"Levi's Stadium, San Francisco"},{t:"6:00 PM",a:"Paraguay",b:"England",g:"G",v:"Gillette Stadium, Boston"},{t:"9:00 PM",a:"Chile",b:"Canada",g:"B",v:"AT&T Stadium, Dallas"}] },
-  { d:"Jun 25", full:"Thursday, June 25", feat:["South Africa","South Korea"], dev:"South Africa's church is one of Africa's largest—yet millions in Muslim and traditional communities remain unreached. South Korea has become a sending nation of extraordinary scale. Together they picture the global church: growing in some places, still pioneering in others.", pray:"Pray for South African churches to mobilize toward Cape Malay Muslim communities. Pray for Korean missionaries serving in some of the world's most dangerous fields.", matches:[{t:"12:00 PM",a:"South Africa",b:"Scotland",g:"F",v:"Gillette Stadium, Boston"},{t:"3:00 PM",a:"South Korea",b:"Australia",g:"C",v:"SoFi Stadium, Los Angeles"},{t:"6:00 PM",a:"Colombia",b:"USA",g:"B",v:"Levi's Stadium, San Francisco"},{t:"9:00 PM",a:"Argentina",b:"Ecuador",g:"C",v:"MetLife Stadium, New York"}] },
-  { d:"Jun 26", full:"Friday, June 26", feat:["Germany","Spain"], dev:"The final push of the group stage. Germany and Spain—two European giants, two post-Christian nations with millions of Muslim residents. Europe's mission challenge is as great as the Global South's. The church everywhere must rise.", pray:"Pray for Turkish churches in Germany. Pray for Moroccan communities in Spain to encounter the gospel. Pray for European Christians to rediscover their missionary calling.", matches:[{t:"12:00 PM",a:"Germany",b:"Egypt",g:"H",v:"Rose Bowl, Los Angeles"},{t:"3:00 PM",a:"Spain",b:"Norway",g:"A",v:"Estadio Azteca, Mexico City"},{t:"6:00 PM",a:"Belgium",b:"Croatia",g:"F",v:"MetLife Stadium, New York"},{t:"9:00 PM",a:"France",b:"Netherlands",g:"D",v:"Lincoln Financial Field, Philadelphia"}] },
-  { d:"Jun 27", full:"Saturday, June 27", feat:["All Nations"], dev:"The final day of the group stage. Ten matches. Nations from every corner of the earth. As the group stage closes, we have prayed our way through 42 nations—each one a people loved by God, each one a field for the gospel. The tournament continues, and so does our mission.", pray:"Pray for a harvest among the nations gathered in North America for this tournament. Pray for the church to be mobilized, sent, and sustained in mission until every people group has heard.", matches:[{t:"10:00 AM",a:"USA",b:"Uruguay",g:"B",v:"AT&T Stadium, Dallas"},{t:"10:00 AM",a:"Canada",b:"Chile",g:"B",v:"BC Place, Vancouver"},{t:"2:00 PM",a:"Brazil",b:"Saudi Arabia",g:"E",v:"SoFi Stadium, Los Angeles"},{t:"2:00 PM",a:"Australia",b:"Uzbekistan",g:"E",v:"Levi's Stadium, San Francisco"},{t:"6:00 PM",a:"Japan",b:"South Korea",g:"C",v:"Rose Bowl, Los Angeles"},{t:"6:00 PM",a:"Argentina",b:"Paraguay",g:"C",v:"MetLife Stadium, New York"},{t:"6:00 PM",a:"England",b:"Uruguay",g:"G",v:"Gillette Stadium, Boston"},{t:"6:00 PM",a:"Qatar",b:"Panama",g:"G",v:"Lincoln Financial Field, Philadelphia"},{t:"6:00 PM",a:"Germany",b:"Haiti",g:"H",v:"Allegiant Stadium, Las Vegas"},{t:"6:00 PM",a:"Egypt",b:"Switzerland",g:"H",v:"Rose Bowl, Los Angeles"}] },
+  {
+    d:"Jun 11", full:"Thursday, June 11",
+    feat:["Mexico","South Africa"],
+    dev:"The World Cup opens today at the Estadio Azteca — the same sacred ground where the gospel first took root in the Americas five centuries ago. Every nation on this field is a people for whom Christ died. The tournament isn't merely sport; it's a window into the stunning diversity God is gathering to himself.",
+    pray:"Over 95% of South Africans identify as Christian, yet millions in Cape Malay Muslim and Zulu traditionalist communities have never heard a gospel witness in their heart language. Pray with us: • For South African churches to cross the street and engage Muslim neighbors in Cape Town and Durban. • For Mexican believers to see diaspora neighbors — Moroccan, Nigerian, Chinese — as their mission field.",
+    matches:[
+      {t:"3:00 PM",a:"Mexico",b:"South Africa",g:"A",v:"Estadio Azteca, Mexico City"},
+      {t:"10:00 PM",a:"South Korea",b:"Czechia",g:"A",v:"Estadio Akron, Guadalajara"},
+    ]
+  },
+  {
+    d:"Jun 12", full:"Friday, June 12",
+    feat:["Canada","USA"],
+    dev:"Both North American host nations open today. Canada's cities — Toronto, Vancouver, Montreal — are among the world's most diverse, overflowing with diaspora from every unreached region. The United States hosts millions of immigrants from least-reached nations, the largest unreached mission field without a passport.",
+    pray:"God is bringing the nations to North America. The question is whether the church will notice. Pray with us: • For Canadian and American believers to see their Muslim, Hindu, and Buddhist neighbors as a divine appointment rather than a cultural inconvenience. • For immigrant churches in both nations to be equipped and empowered for cross-cultural witness.",
+    matches:[
+      {t:"3:00 PM",a:"Canada",b:"Bosnia & Herzegovina",g:"B",v:"BMO Field, Toronto"},
+      {t:"9:00 PM",a:"USA",b:"Paraguay",g:"D",v:"SoFi Stadium, Inglewood"},
+    ]
+  },
+  {
+    d:"Jun 13", full:"Saturday, June 13",
+    feat:["Brazil","Morocco"],
+    dev:"Brazil sends more Protestant missionaries than any other nation in Latin America. Morocco is 99.9% Muslim — yet a growing underground church testifies to transformation no government can stop. Today these two worlds collide on the pitch. The gospel is already at work in Morocco; Brazilian churches are among those sending workers there.",
+    pray:"The Amazigh (Berber) people of Morocco have waited centuries for the gospel in their own language and culture. Pray with us: • For Moroccan believers to have courage and protection as they share faith with family and neighbors. • For Brazilian mission agencies to sustain long-term workers in North Africa.",
+    matches:[
+      {t:"3:00 PM",a:"Qatar",b:"Switzerland",g:"B",v:"Levi's Stadium, Santa Clara"},
+      {t:"6:00 PM",a:"Brazil",b:"Morocco",g:"C",v:"MetLife Stadium, East Rutherford"},
+      {t:"9:00 PM",a:"Haiti",b:"Scotland",g:"C",v:"Gillette Stadium, Foxborough"},
+      {t:"12:00 AM",a:"Australia",b:"Türkiye",g:"D",v:"BC Place, Vancouver"},
+    ]
+  },
+  {
+    d:"Jun 14", full:"Sunday, June 14",
+    feat:["Germany","Netherlands"],
+    dev:"Two post-Christian European giants take the field. Germany and the Netherlands were once missionary-sending nations of the Reformation era — now they are mission fields themselves, with Turkish, Moroccan, and Somali diaspora communities living beside churches that have largely forgotten their missionary calling.",
+    pray:"Europe's mission challenge is as urgent as any in the Global South. Pray with us: • For Turkish churches in Berlin and Frankfurt to be bold witnesses among Germany's 4 million Turkish-background residents. • For Dutch churches to engage the growing Moroccan Muslim community in Amsterdam and Rotterdam.",
+    matches:[
+      {t:"1:00 PM",a:"Germany",b:"Curaçao",g:"E",v:"BMO Field, Toronto"},
+      {t:"4:00 PM",a:"Netherlands",b:"Japan",g:"F",v:"AT&T Stadium, Arlington"},
+      {t:"7:00 PM",a:"Côte d'Ivoire",b:"Ecuador",g:"E",v:"Lincoln Financial Field, Philadelphia"},
+      {t:"10:00 PM",a:"Sweden",b:"Tunisia",g:"F",v:"Estadio Akron, Guadalajara"},
+    ]
+  },
+  {
+    d:"Jun 15", full:"Monday, June 15",
+    feat:["Iran","Saudi Arabia"],
+    dev:"Two of the most spiritually significant Muslim-majority nations play today. Iran is witnessing one of the fastest church growth movements on earth — a quiet revolution happening underground, beyond the reach of any government. Saudi Arabia — the birthplace of Islam — is seeing remarkable numbers of Saudis quietly following Jesus. God is on the move where human strategies could never reach.",
+    pray:"The Spirit of God is moving in Iran and across the Arabian Peninsula in ways that would have seemed impossible a generation ago. Pray with us: • For the underground church in Iran to remain protected and multiplying, especially among younger Iranians hungry for truth. • For Saudi seekers studying or working in North America during this World Cup to find a believing friend.",
+    matches:[
+      {t:"1:00 PM",a:"Spain",b:"Cape Verde",g:"H",v:"Mercedes-Benz Stadium, Atlanta"},
+      {t:"6:00 PM",a:"Belgium",b:"Egypt",g:"G",v:"Lumen Field, Seattle"},
+      {t:"6:00 PM",a:"Saudi Arabia",b:"Uruguay",g:"H",v:"Hard Rock Stadium, Miami"},
+      {t:"12:00 AM",a:"Iran",b:"New Zealand",g:"G",v:"SoFi Stadium, Inglewood"},
+    ]
+  },
+  {
+    d:"Jun 16", full:"Tuesday, June 16",
+    feat:["France","Argentina"],
+    dev:"France hosts Europe's largest Muslim population — millions of Algerian and Tunisian origin, many living in suburban communities largely isolated from the church. Argentina carries a Buenos Aires Jewish community of 200,000 — one of Latin America's most unreached groups. Today both nations play, reminding us that the mission field is not always overseas.",
+    pray:"God placed the nations next door to the church — the question is whether the church has eyes to see. Pray with us: • For French churches to mobilize missionally toward banlieue communities where Islam is the primary spiritual framework. • For Argentine believers to engage the Buenos Aires Jewish community with patient, gospel-centered friendship.",
+    matches:[
+      {t:"3:00 PM",a:"France",b:"Senegal",g:"I",v:"MetLife Stadium, East Rutherford"},
+      {t:"6:00 PM",a:"Iraq",b:"Norway",g:"I",v:"Gillette Stadium, Foxborough"},
+      {t:"9:00 PM",a:"Argentina",b:"Algeria",g:"J",v:"Arrowhead Stadium, Kansas City"},
+      {t:"12:00 AM",a:"Austria",b:"Jordan",g:"J",v:"Levi's Stadium, Santa Clara"},
+    ]
+  },
+  {
+    d:"Jun 17", full:"Wednesday, June 17",
+    feat:["Portugal","DR Congo"],
+    dev:"Portugal — the once-great colonial power that carried Catholicism to Africa and Asia — now faces a post-Christian reckoning at home. DR Congo carries one of the world's largest Christian populations, yet also dozens of unreached tribal peoples in the deep rainforest. Former sender and vibrant receiver stand together today on the same pitch.",
+    pray:"The global church is shifting south and east — the majority of the world's Christians now live in Africa, Asia, and Latin America. Pray with us: • For Congolese churches to be equipped and funded to reach unreached tribal communities in their own rainforest backyard. • For Portuguese churches to rediscover the missionary fire of their forebears and engage Muslim immigrants in Lisbon.",
+    matches:[
+      {t:"1:00 PM",a:"Portugal",b:"DR Congo",g:"K",v:"NRG Stadium, Houston"},
+      {t:"4:00 PM",a:"England",b:"Ghana",g:"L",v:"AT&T Stadium, Arlington"},
+      {t:"7:00 PM",a:"Colombia",b:"Uzbekistan",g:"K",v:"Estadio Azteca, Mexico City"},
+      {t:"10:00 PM",a:"Croatia",b:"Panama",g:"L",v:"Levi's Stadium, Santa Clara"},
+    ]
+  },
+  {
+    d:"Jun 18", full:"Thursday, June 18",
+    feat:["Jordan","Iraq"],
+    dev:"Two nations from the ancient biblical world — Jordan and Iraq, the lands of Abraham, Daniel, and the early church. Jordan hosts more refugees per capita than nearly any nation on earth. Iraq is home to the Yazidis, a persecuted ancient people, and to Assyrian Christians, whose ancestors heard the gospel before Rome did. These are not distant mission fields; they are ancient homelands of the faith.",
+    pray:"The people of Iraq and Jordan have known suffering that most of us cannot imagine — and yet the church in both nations endures and grows. Pray with us: • For the Yazidi people of Iraq — survivors of genocide — to find healing and hope in Jesus Christ. • For the Jordanian church to be a generous, welcoming presence to the millions of Syrian and Iraqi refugees in their midst.",
+    matches:[
+      {t:"12:00 PM",a:"Czechia",b:"South Africa",g:"A",v:"Mercedes-Benz Stadium, Atlanta"},
+      {t:"3:00 PM",a:"Switzerland",b:"Bosnia & Herzegovina",g:"B",v:"SoFi Stadium, Inglewood"},
+      {t:"6:00 PM",a:"Canada",b:"Qatar",g:"B",v:"BC Place, Vancouver"},
+      {t:"11:00 PM",a:"Mexico",b:"South Korea",g:"A",v:"Estadio Akron, Guadalajara"},
+    ]
+  },
+  {
+    d:"Jun 19", full:"Friday, June 19",
+    feat:["Nigeria","USA"],
+    dev:"Juneteenth — America's celebration of freedom. Today Nigeria, home to Africa's most unreached people groups, and the United States, home to the world's most unreached diaspora, both play. The Hausa-Fulani of Nigeria number 30 million. The Muslim communities of Detroit, Minneapolis, and Houston number in the hundreds of thousands. Freedom — the kind that transforms nations — is still needed.",
+    pray:"The American church has a staggering mission opportunity among immigrants and diaspora communities in its own cities. Pray with us: • For Nigerian church leaders on the frontier with Hausa-Fulani communities in northern Nigeria to be protected and supplied. • For American believers to be mobilized toward Somali, Yemeni, and Afghan neighbors in their own cities.",
+    matches:[
+      {t:"3:00 PM",a:"USA",b:"Australia",g:"D",v:"Lumen Field, Seattle"},
+      {t:"6:00 PM",a:"Scotland",b:"Morocco",g:"C",v:"Gillette Stadium, Foxborough"},
+      {t:"9:00 PM",a:"Brazil",b:"Haiti",g:"C",v:"Lincoln Financial Field, Philadelphia"},
+      {t:"12:00 AM",a:"Türkiye",b:"Paraguay",g:"D",v:"Levi's Stadium, Santa Clara"},
+    ]
+  },
+  {
+    d:"Jun 20", full:"Saturday, June 20",
+    feat:["Egypt","Sweden"],
+    dev:"Egypt holds the ancient Coptic Church — one of Christianity's oldest traditions, tracing its roots to the apostle Mark. Yet 90% of Egyptians remain Muslim and largely unreached by their Christian neighbors. Sweden, meanwhile, is one of Europe's most secular nations — yet its cities have become home to tens of thousands of Somali, Iraqi, and Afghan refugees, many of whom have encountered the gospel for the first time in Scandinavia.",
+    pray:"God is sovereign over migration — he is moving the unreached to where the church already is. Pray with us: • For Coptic Christians in Egypt to be a missional church to their Muslim neighbors, not merely a cultural minority. • For Swedish churches to see their refugee neighbors as an answer to prayer, not a burden to bear.",
+    matches:[
+      {t:"1:00 PM",a:"Netherlands",b:"Sweden",g:"F",v:"NRG Stadium, Houston"},
+      {t:"4:00 PM",a:"Germany",b:"Côte d'Ivoire",g:"E",v:"BMO Field, Toronto"},
+      {t:"8:00 PM",a:"Ecuador",b:"Curaçao",g:"E",v:"Arrowhead Stadium, Kansas City"},
+      {t:"10:00 PM",a:"Tunisia",b:"Japan",g:"F",v:"Estadio Akron, Guadalajara"},
+    ]
+  },
+  {
+    d:"Jun 21", full:"Sunday, June 21",
+    feat:["Bosnia & Herzegovina","Türkiye"],
+    dev:"Bosnia and Herzegovina carries Europe's largest indigenous Muslim community — the Bosniaks — shaped by centuries of Ottoman history and wartime trauma. Türkiye bridges two continents, and its Kurdish minority and Alevi communities represent some of the most overlooked gospel frontiers in the world. Both nations play today, asking a quiet question: who is praying for these people?",
+    pray:"Europe's Muslim communities are often invisible to the church — living nearby but worlds apart spiritually. Pray with us: • For workers to be raised up among the Bosniaks — a people with deep spiritual hunger and limited gospel access. • For Kurdish believers in Türkiye to be protected and to multiply disciples among their 15 million unreached kin.",
+    matches:[
+      {t:"1:00 PM",a:"Spain",b:"Saudi Arabia",g:"H",v:"Hard Rock Stadium, Miami"},
+      {t:"4:00 PM",a:"Belgium",b:"Iran",g:"G",v:"Lumen Field, Seattle"},
+      {t:"6:00 PM",a:"Uruguay",b:"Cape Verde",g:"H",v:"NRG Stadium, Houston"},
+      {t:"9:00 PM",a:"New Zealand",b:"Egypt",g:"G",v:"SoFi Stadium, Inglewood"},
+    ]
+  },
+  {
+    d:"Jun 22", full:"Monday, June 22",
+    feat:["Argentina","Algeria"],
+    dev:"Algeria and Argentina — North Africa and South America — face off today. Algeria's Kabyle Berber church is one of Africa's most remarkable revival stories; a people group almost entirely Muslim just twenty years ago is now home to hundreds of thousands of believers. Argentina's Buenos Aires holds one of Latin America's largest Jewish populations. Two mission frontiers. Two stories of God's faithfulness.",
+    pray:"No people group is beyond the reach of the gospel — Algeria's church explosion proves it. Pray with us: • For Kabyle Berber church leaders in Algeria who face increasing government pressure to have wisdom, protection, and courage. • For Argentine believers to develop long-term, patient gospel friendships within the Jewish community in Buenos Aires.",
+    matches:[
+      {t:"1:00 PM",a:"Argentina",b:"Austria",g:"J",v:"AT&T Stadium, Arlington"},
+      {t:"4:00 PM",a:"Portugal",b:"Uzbekistan",g:"K",v:"NRG Stadium, Houston"},
+      {t:"9:00 PM",a:"France",b:"Iraq",g:"I",v:"Gillette Stadium, Foxborough"},
+      {t:"11:00 PM",a:"Jordan",b:"Algeria",g:"J",v:"Levi's Stadium, Santa Clara"},
+    ]
+  },
+  {
+    d:"Jun 23", full:"Tuesday, June 23",
+    feat:["Norway","Czechia"],
+    dev:"Norway — once the land of Viking missionaries — is now one of Europe's most secular post-Christian nations, yet its generosity toward refugees has created a multi-cultural mission field in Oslo and Bergen. Czechia is statistically the most atheist nation in Europe — a place where the spiritual vacuum left by communism has never been filled. The Reformation's heartland needs a new Reformation.",
+    pray:"Post-communist spiritual emptiness is one of the most urgent yet overlooked mission frontiers in the world. Pray with us: • For Czech evangelical churches to be equipped with compelling, thoughtful gospel engagement for their deeply skeptical secular neighbors. • For Norwegian churches to see their Afghan, Somali, and Iraqi neighbors as the answer to the Great Commission — brought to their doorstep.",
+    matches:[
+      {t:"1:00 PM",a:"Portugal",b:"Colombia",g:"K",v:"Hard Rock Stadium, Miami"},
+      {t:"1:00 PM",a:"DR Congo",b:"Uzbekistan",g:"K",v:"Mercedes-Benz Stadium, Atlanta"},
+      {t:"6:00 PM",a:"Canada",b:"Switzerland",g:"B",v:"BC Place, Vancouver"},
+      {t:"6:00 PM",a:"Bosnia & Herzegovina",b:"Qatar",g:"B",v:"SoFi Stadium, Inglewood"},
+    ]
+  },
+  {
+    d:"Jun 24", full:"Wednesday, June 24",
+    feat:["Haiti","Japan"],
+    dev:"Haiti and Japan — two nations at opposite ends of the earth and opposite ends of prosperity. Haiti, scarred by poverty, earthquake, and political chaos, yet overflowing with spiritual vitality and a vibrant church. Japan, prosperous and stable, yet one of the world's hardest mission fields — less than 1% Christian after 150 years of dedicated effort. God is working in unexpected ways in both.",
+    pray:"The Holy Spirit moves where the church is present and where it is not — and no nation is beyond his reach. Pray with us: • For the church in Haiti to be a source of healing and hope in a nation that desperately needs both — and for global partners to walk alongside them. • For breakthroughs in Japanese family units, where one family member coming to faith can face enormous pressure to recant.",
+    matches:[
+      {t:"9:00 PM",a:"Czechia",b:"Mexico",g:"A",v:"Estadio Azteca, Mexico City"},
+      {t:"9:00 PM",a:"South Africa",b:"South Korea",g:"A",v:"Estadio BBVA, Monterrey"},
+      {t:"3:00 PM",a:"England",b:"Croatia",g:"L",v:"AT&T Stadium, Arlington"},
+      {t:"3:00 PM",a:"Ghana",b:"Panama",g:"L",v:"Lincoln Financial Field, Philadelphia"},
+    ]
+  },
+  {
+    d:"Jun 25", full:"Thursday, June 25",
+    feat:["Senegal","Nigeria"],
+    dev:"West Africa's two spiritual giants play today. Senegal is over 95% Muslim — home to Sufi brotherhoods with deep spiritual hunger and a tradition of mystical seeking that the gospel is beginning to meet. Nigeria carries Africa's most unreached people groups. Together these two nations represent one of the greatest unfinished mission tasks on the continent.",
+    pray:"The church in West Africa is growing — yet the Muslim-majority north remains a great spiritual frontier. Pray with us: • For the Wolof people of Senegal — the heart of Sufi Islam in West Africa — to encounter Jesus in dreams, through workers, and in community. • For Nigerian church planters crossing north into Hausa-Fulani territory to be sustained, protected, and fruitful.",
+    matches:[
+      {t:"3:00 PM",a:"France",b:"Norway",g:"I",v:"Gillette Stadium, Foxborough"},
+      {t:"3:00 PM",a:"Senegal",b:"Iraq",g:"I",v:"BMO Field, Toronto"},
+      {t:"8:00 PM",a:"Cape Verde",b:"Saudi Arabia",g:"H",v:"NRG Stadium, Houston"},
+      {t:"8:00 PM",a:"Uruguay",b:"Spain",g:"H",v:"Estadio Akron, Guadalajara"},
+    ]
+  },
+  {
+    d:"Jun 26", full:"Friday, June 26",
+    feat:["England","Germany"],
+    dev:"Two European giants close out the group stage. England's squad reflects London's incredible diversity — players tracing roots to Nigeria, Jamaica, Somalia, and beyond. Germany's team is similarly diverse, carrying players from Turkish and North African backgrounds. The nations are not just in the stands; they are on the pitch. This is the world God loves — and the world the church is called to reach.",
+    pray:"Europe's mission challenge is as urgent as the Global South's — and in some ways more complex. Pray with us: • For Turkish-background believers in Germany to be empowered as missionaries to their own community — the most effective witnesses for the 4 million Turkish-heritage people in Germany. • For British churches to engage the British Pakistani, Bangladeshi, and Somali communities who live in their cities but rarely in their congregations.",
+    matches:[
+      {t:"11:00 PM",a:"Egypt",b:"Iran",g:"G",v:"Lumen Field, Seattle"},
+      {t:"11:00 PM",a:"New Zealand",b:"Belgium",g:"G",v:"BC Place, Vancouver"},
+      {t:"5:00 PM",a:"England",b:"Panama",g:"L",v:"MetLife Stadium, East Rutherford"},
+      {t:"5:00 PM",a:"Croatia",b:"Ghana",g:"L",v:"Lincoln Financial Field, Philadelphia"},
+    ]
+  },
+  {
+    d:"Jun 27", full:"Saturday, June 27",
+    feat:["All Nations"],
+    dev:"The final day. Ten simultaneous matches across North America. Nations from every corner of the earth. We have prayed our way through 48 nations — each one a people loved by God, each one a field for the gospel. The group stage ends today, but the mission doesn't. As teams advance and others go home, let every nation that played here have left knowing that someone, somewhere was praying for them.",
+    pray:"Seventeen days of prayer for the nations — but the work is far from done. Pray with us: • For every person from an unreached nation who attended this World Cup to have encountered a believer, a conversation, or a seed of the gospel that will bear fruit. • For the global church to be mobilized, sustained, and sent until every people group has heard the name of Jesus.",
+    matches:[
+      {t:"10:00 AM",a:"Jordan",b:"Argentina",g:"J",v:"AT&T Stadium, Arlington"},
+      {t:"10:00 AM",a:"Algeria",b:"Austria",g:"J",v:"Arrowhead Stadium, Kansas City"},
+      {t:"10:00 AM",a:"Colombia",b:"Portugal",g:"K",v:"Hard Rock Stadium, Miami"},
+      {t:"10:00 AM",a:"DR Congo",b:"Uzbekistan",g:"K",v:"Mercedes-Benz Stadium, Atlanta"},
+      {t:"5:00 PM",a:"Panama",b:"England",g:"L",v:"MetLife Stadium, East Rutherford"},
+      {t:"5:00 PM",a:"Ghana",b:"Croatia",g:"L",v:"Lincoln Financial Field, Philadelphia"},
+      {t:"9:00 PM",a:"Netherlands",b:"Tunisia",g:"F",v:"NRG Stadium, Houston"},
+      {t:"9:00 PM",a:"Japan",b:"Sweden",g:"F",v:"AT&T Stadium, Arlington"},
+      {t:"10:00 PM",a:"Germany",b:"Ecuador",g:"E",v:"BMO Field, Toronto"},
+      {t:"10:00 PM",a:"Côte d'Ivoire",b:"Curaçao",g:"E",v:"Arrowhead Stadium, Kansas City"},
+    ]
+  },
 ];
 
 const REGIONS = ["All","Americas","Europe","Africa","Asia","Oceania"];
